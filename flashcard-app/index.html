@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flashcard App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Flashcards</h1>
+
+    <input v-model="category" placeholder="Enter category (e.g. fruits)" />
+    <button @click="generateFlashcards">Generate</button>
+
+    <div v-if="loading">Loading...</div>
+
+    <div class="cards" v-if="flashcards.length">
+      <div v-for="(card, index) in flashcards" :key="index" class="card" @click="toggleCard(index)">
+        <div v-if="!card.flipped">{{ card.word }}</div>
+        <div v-else>{{ card.definition }}</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
