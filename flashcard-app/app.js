@@ -14,7 +14,7 @@ createApp({
 
       this.loading = true;
       try {
-        const response = await fetch("https://n8n.nocnoc-internal.com/webhook-test/generate-flashcards", {
+        const response = await fetch("https://n8n.nocnoc-internal.com/webhook/generate-flashcards", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
